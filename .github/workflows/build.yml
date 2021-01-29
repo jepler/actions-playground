@@ -17,4 +17,4 @@ jobs:
             mkdir ~/.cache
             touch ~/.cache/stamp
             echo "I was generated on `date`" >> ~/.cache/stamp
-            cat ~/.cache
+            cat ~/.cache/stamp
