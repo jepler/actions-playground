@@ -1,4 +1,4 @@
-name: Caching for fun and profit
+name: Cache busting
 
 on:
     workflow_dispatch:
