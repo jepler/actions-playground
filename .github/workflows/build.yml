@@ -1,4 +1,4 @@
-name: Caching for fun and profit
+name: what's in the default environment
 
 on: push
 
@@ -7,24 +7,6 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-
-        - uses: actions/checkout@v2
-        - uses: dorny/paths-filter@v2
-          id: filter
-          with:
-            # Enable listing of files matching each filter.
-            # Paths to files will be available in `${FILTER_NAME}_files` output variable.
-            # Paths will be formatted as JSON array
-            list-files: json
-
-            # Compare against this branch. (Ignored for PRs.)
-            base: ${{ github.ref }}
-
-            # In this example all changed files are passed to the following action to do
-            # some custom processing.
-            filters: |
-              changed:
-                - '**'
-        - name: use the paths
+        - name: do a shell
           run: |
-            cat <<<'${{ steps.filter.outputs.changed_files }}'
+            env
