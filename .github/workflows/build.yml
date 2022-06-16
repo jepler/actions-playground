@@ -1,12 +1,17 @@
-name: what's in the default environment
+name: thing
 
 on: push
-
 jobs:
-    build:
-        runs-on: ubuntu-latest
-
-        steps:
-        - name: do a shell
-          run: |
-            env
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      id: cp310
+      with:
+        python-version: "3.10"
+    - run: echo "${{ steps.cp310.outputs.python-path }}"
+    - run: echo "-$HHHH- -$IIII-"
+      env:
+        HHHH: ${{ hashFiles(steps.cp310.outputs.python-path) }}
+        IIII: ${{ hashFiles('/bin/sh', steps.cp310.outputs.python-path) }}
