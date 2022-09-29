@@ -13,5 +13,5 @@ jobs:
         - true
     runs-on: ubuntu-latest
     steps:
-    - run: "echo ${{matrix.exit-status}}"
+    - run: "exit ${{matrix.exit-status}}"
       continue-on-error: ${{matrix.fail-ok}}
